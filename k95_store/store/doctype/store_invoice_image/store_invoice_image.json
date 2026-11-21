@@ -1,0 +1,36 @@
+{
+ "actions": [],
+ "creation": "2026-11-20 19:30:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": ["image", "source"],
+ "fields": [
+  {
+   "fieldname": "image",
+   "fieldtype": "Attach Image",
+   "in_list_view": 1,
+   "label": "Invoice Image",
+   "reqd": 1
+  },
+  {
+   "default": "GRN",
+   "fieldname": "source",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Source",
+   "options": "Gate Entry\nGRN"
+  }
+ ],
+ "istable": 1,
+ "links": [],
+ "modified": "2026-11-20 19:30:00.000000",
+ "modified_by": "Administrator",
+ "module": "Store",
+ "name": "Store Invoice Image",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 0
+}

@@ -1,0 +1,124 @@
+{
+ "actions": [],
+ "creation": "2026-11-05 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "putaway_at",
+  "putaway_by",
+  "status",
+  "gate_entry",
+  "grn",
+  "stock_entry",
+  "items"
+ ],
+ "fields": [
+  {
+   "fieldname": "putaway_at",
+   "fieldtype": "Datetime",
+   "label": "Putaway At"
+  },
+  {
+   "fieldname": "putaway_by",
+   "fieldtype": "Link",
+   "label": "Putaway By",
+   "options": "User",
+   "default": "__user"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "draft\nposted",
+   "default": "draft"
+  },
+  {
+   "fieldname": "gate_entry",
+   "fieldtype": "Link",
+   "label": "Gate Entry",
+   "options": "Gate Entry",
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "grn",
+   "fieldtype": "Link",
+   "label": "GRN",
+   "options": "Purchase Receipt",
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "stock_entry",
+   "fieldtype": "Link",
+   "label": "Stock Entry",
+   "options": "Stock Entry"
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "Items",
+   "options": "Store Putaway Item",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-11-20 15:10:00.000000",
+ "modified_by": "Administrator",
+ "module": "Store",
+ "name": "Store Putaway",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1
+  },
+  {
+   "role": "Store Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1
+  },
+  {
+   "role": "Store User",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "submit": 1
+  },
+  {
+   "role": "Store Auditor",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "autoname": "PUT-.YYYY.MM.DD.-.####",
+ "is_submittable": 1
+}

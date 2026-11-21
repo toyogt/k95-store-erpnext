@@ -1,0 +1,83 @@
+{%- set company_name = frappe.db.get_single_value("Store Settings", "company") or frappe.db.get_default("company") or "" -%}
+<style>
+	.ge-print { font-family: sans-serif; color: #1f2933; }
+	.ge-print h1 { margin: 0 0 4px; font-size: 22px; }
+	.ge-print h2 { margin: 0 0 12px; font-size: 16px; font-weight: 600; }
+	.ge-print table.meta { width: 100%; border-collapse: collapse; margin-bottom: 16px; }
+	.ge-print table.meta td { border: 1px solid #d0d7de; padding: 6px 8px; vertical-align: top; width: 25%; }
+	.ge-print table.meta td.label { background: #f6f8fa; font-weight: 600; width: 18%; }
+	.ge-photos { margin: 8px 0 16px; }
+	.ge-photos img { width: 180px; height: 140px; object-fit: cover; margin: 4px; border: 1px solid #d0d7de; }
+	.ge-sign { margin-top: 28px; }
+</style>
+<div class="ge-print">
+	<h1>{{ company_name }}</h1>
+	<h2>{{ _("Gate Entry") }} {{ doc.name }}</h2>
+	<table class="meta">
+		<tr>
+			<td class="label">{{ _("Arrived At") }}</td>
+			<td>{{ frappe.utils.format_datetime(doc.arrived_at) if doc.arrived_at else "" }}</td>
+			<td class="label">{{ _("Printed At") }}</td>
+			<td>{{ frappe.utils.format_datetime(frappe.utils.now_datetime()) }}</td>
+		</tr>
+		<tr>
+			<td class="label">{{ _("Person") }}</td>
+			<td>{{ doc.submitted_by_name or "" }}</td>
+			<td class="label">{{ _("Email") }}</td>
+			<td>{{ doc.submitted_by_email or "" }}</td>
+		</tr>
+		<tr>
+			<td class="label">{{ _("Workflow") }}</td>
+			<td>{{ doc.workflow_state or "Draft" }}</td>
+			<td class="label">{{ _("Status") }}</td>
+			<td>{{ doc.status or "" }}</td>
+		</tr>
+		<tr>
+			<td class="label">{{ _("Arrival Type") }}</td>
+			<td>{{ doc.arrival_type or "" }}</td>
+			<td class="label">{{ _("Transport") }}</td>
+			<td>{{ doc.transport_type or "" }}</td>
+		</tr>
+		<tr>
+			<td class="label">{{ _("Vehicle") }}</td>
+			<td>{{ doc.vehicle_number or "" }}</td>
+			<td class="label">{{ _("Party") }}</td>
+			<td>{{ doc.supplier_name or "" }}</td>
+		</tr>
+		<tr>
+			<td class="label">{{ _("Driver") }}</td>
+			<td>{{ doc.driver_name or "" }}</td>
+			<td class="label">{{ _("Driver Mobile") }}</td>
+			<td>{{ doc.driver_number or "" }}</td>
+		</tr>
+		<tr>
+			<td class="label">{{ _("PO Number") }}</td>
+			<td>{{ doc.po_number or doc.purchase_order or "" }}</td>
+			<td class="label">{{ _("Notes") }}</td>
+			<td>{{ doc.notes or "" }}</td>
+		</tr>
+	</table>
+
+	{% for fieldname, title in (
+		("vehicle_photo", _("Vehicle Photos")),
+		("invoice_photo", _("Invoice Photos")),
+		("material_photo", _("Material Photos")),
+	) %}
+		<h3>{{ title }}</h3>
+		<div class="ge-photos">
+			{% set rows = doc.get(fieldname) or [] %}
+			{% if rows %}
+				{% for row in rows if row.image %}
+					<img src="{{ doc.photo_src(row.image) }}" alt="{{ title }}">
+				{% endfor %}
+			{% else %}
+				<div>—</div>
+			{% endif %}
+		</div>
+	{% endfor %}
+
+	<div class="ge-sign">
+		<div>{{ _("Recorded by") }}: {{ doc.submitted_by_name or "" }}</div>
+		<div>{{ _("Date and time") }}: {{ frappe.utils.format_datetime(doc.arrived_at) if doc.arrived_at else "" }}</div>
+	</div>
+</div>

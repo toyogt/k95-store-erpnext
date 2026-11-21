@@ -1,0 +1,146 @@
+{
+ "actions": [],
+ "creation": "2026-11-05 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "company",
+  "warehouses_section",
+  "stores_group_warehouse",
+  "receiving_warehouse",
+  "rejected_warehouse",
+  "quarantine_warehouse",
+  "rules_section",
+  "enable_strict_supplier_item_mapping",
+  "auto_approve_return_percent",
+  "auto_approve_return_qty",
+  "float_epsilon",
+  "landed_cost_account"
+ ],
+ "fields": [
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "warehouses_section",
+   "fieldtype": "Section Break",
+   "label": "Warehouses"
+  },
+  {
+   "fieldname": "stores_group_warehouse",
+   "fieldtype": "Link",
+   "label": "Stores Group",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "receiving_warehouse",
+   "fieldtype": "Link",
+   "label": "Receiving Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "rejected_warehouse",
+   "fieldtype": "Link",
+   "label": "Rejected Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "quarantine_warehouse",
+   "fieldtype": "Link",
+   "label": "Quarantine Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "rules_section",
+   "fieldtype": "Section Break",
+   "label": "Rules"
+  },
+  {
+   "fieldname": "enable_strict_supplier_item_mapping",
+   "fieldtype": "Check",
+   "label": "Strict Supplier Item Mapping",
+   "default": "1"
+  },
+  {
+   "fieldname": "auto_approve_return_percent",
+   "fieldtype": "Float",
+   "label": "Auto Approve Return Percent",
+   "default": "5"
+  },
+  {
+   "fieldname": "auto_approve_return_qty",
+   "fieldtype": "Float",
+   "label": "Auto Approve Return Qty",
+   "default": "2"
+  },
+  {
+   "fieldname": "float_epsilon",
+   "fieldtype": "Float",
+   "label": "Float Epsilon",
+   "default": "0.0001"
+  },
+  {
+   "fieldname": "landed_cost_account",
+   "fieldtype": "Link",
+   "label": "Landed Cost Account",
+   "options": "Account"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-11-05 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Store",
+ "name": "Store Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "Store Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1
+  },
+  {
+   "role": "Store User",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  },
+  {
+   "role": "Store Auditor",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "issingle": 1
+}

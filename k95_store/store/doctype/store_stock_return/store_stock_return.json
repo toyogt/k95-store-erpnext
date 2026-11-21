@@ -1,0 +1,156 @@
+{
+ "actions": [],
+ "creation": "2026-11-05 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "link_mode",
+  "issue",
+  "return_type",
+  "requested_department",
+  "approval_mode",
+  "status",
+  "posting_location",
+  "stock_entry",
+  "posted_by",
+  "posted_at",
+  "items"
+ ],
+ "fields": [
+  {
+   "fieldname": "link_mode",
+   "fieldtype": "Select",
+   "label": "Link Mode",
+   "options": "against_issue\nstandalone",
+   "default": "against_issue",
+   "reqd": 1
+  },
+  {
+   "fieldname": "issue",
+   "fieldtype": "Link",
+   "label": "Store Issue",
+   "options": "Store Issue",
+   "depends_on": "eval:doc.link_mode=='against_issue'",
+   "mandatory_depends_on": "eval:doc.link_mode=='against_issue'"
+  },
+  {
+   "fieldname": "return_type",
+   "fieldtype": "Select",
+   "label": "Return Type",
+   "options": "production_surplus\nproduction_unused\nwrong_issue\ndamaged\nquality_reject\ndispatch_return\nother",
+   "default": "production_unused",
+   "reqd": 1
+  },
+  {
+   "fieldname": "requested_department",
+   "fieldtype": "Select",
+   "label": "Requested Department",
+   "options": "production\ndispatch\nstore",
+   "default": "production"
+  },
+  {
+   "fieldname": "approval_mode",
+   "fieldtype": "Select",
+   "label": "Approval Mode",
+   "options": "auto\nsupervisor\nmanager",
+   "default": "auto"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "draft\nsubmitted\napproved\nposted\nrejected\ncancelled",
+   "default": "draft",
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "posting_location",
+   "fieldtype": "Link",
+   "label": "Post To Location",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "stock_entry",
+   "fieldtype": "Link",
+   "label": "Stock Entry",
+   "options": "Stock Entry"
+  },
+  {
+   "fieldname": "posted_by",
+   "fieldtype": "Link",
+   "label": "Posted By",
+   "options": "User"
+  },
+  {
+   "fieldname": "posted_at",
+   "fieldtype": "Datetime",
+   "label": "Posted At"
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "Items",
+   "options": "Store Stock Return Item",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-11-05 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Store",
+ "name": "Store Stock Return",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "Store Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1
+  },
+  {
+   "role": "Store User",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  },
+  {
+   "role": "Store Auditor",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  },
+  {
+   "role": "Production Requester",
+   "read": 1,
+   "create": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "autoname": "RET-.YYYY.MM.DD.-.####"
+}

@@ -1,0 +1,108 @@
+{
+ "actions": [],
+ "creation": "2026-11-05 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "rule_name",
+  "batch_date_source",
+  "seq_source",
+  "reset_scope",
+  "format_json",
+  "is_active"
+ ],
+ "fields": [
+  {
+   "fieldname": "rule_name",
+   "fieldtype": "Data",
+   "label": "Rule Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "batch_date_source",
+   "fieldtype": "Select",
+   "label": "Date Source",
+   "options": "MFG_START\nLABEL_START",
+   "default": "MFG_START"
+  },
+  {
+   "fieldname": "seq_source",
+   "fieldtype": "Select",
+   "label": "Sequence Source",
+   "options": "COUNTER\nSERIAL_CHAMBER",
+   "default": "COUNTER"
+  },
+  {
+   "fieldname": "reset_scope",
+   "fieldtype": "Select",
+   "label": "Reset Scope",
+   "options": "DAILY\nMONTHLY\nYEARLY\nNEVER",
+   "default": "DAILY"
+  },
+  {
+   "fieldname": "format_json",
+   "fieldtype": "Code",
+   "label": "Format JSON",
+   "options": "JSON"
+  },
+  {
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "label": "Active",
+   "default": "1"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-11-05 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Store",
+ "name": "Batch Format Rule",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "Store Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1
+  },
+  {
+   "role": "Store User",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  },
+  {
+   "role": "Store Auditor",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "autoname": "BR-.######"
+}

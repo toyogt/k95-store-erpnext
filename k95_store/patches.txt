@@ -1,0 +1,1 @@
+k95_store.patches.rename_module_to_store

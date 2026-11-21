@@ -1,0 +1,87 @@
+{
+ "actions": [],
+ "creation": "2026-11-05 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "lot_id",
+  "item_code",
+  "issued_quantity",
+  "already_returned_quantity",
+  "return_quantity",
+  "issue_line",
+  "source_issue_location",
+  "location",
+  "location_code"
+ ],
+ "fields": [
+  {
+   "fieldname": "lot_id",
+   "fieldtype": "Link",
+   "label": "Lot",
+   "options": "Batch",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "item_code",
+   "fieldtype": "Link",
+   "label": "Item",
+   "options": "Item"
+  },
+  {
+   "fieldname": "issued_quantity",
+   "fieldtype": "Float",
+   "label": "Issued Qty"
+  },
+  {
+   "fieldname": "already_returned_quantity",
+   "fieldtype": "Float",
+   "label": "Already Returned",
+   "default": "0"
+  },
+  {
+   "fieldname": "return_quantity",
+   "fieldtype": "Float",
+   "label": "Return Qty",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "issue_line",
+   "fieldtype": "Data",
+   "label": "Issue Line"
+  },
+  {
+   "fieldname": "source_issue_location",
+   "fieldtype": "Link",
+   "label": "Source Location",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Link",
+   "label": "Return Location",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "location_code",
+   "fieldtype": "Data",
+   "label": "Location Code"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-11-05 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Store",
+ "name": "Store Stock Return Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 0,
+ "istable": 1,
+ "editable_grid": 1
+}
